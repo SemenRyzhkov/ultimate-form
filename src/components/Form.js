@@ -5,8 +5,6 @@ export const Form = ({ children, ...props }) => {
     <Card
       sx={{
         width: "100%",
-        alignItems: "center",
-
         // marginTop: spacing(1)
       }}
     >
