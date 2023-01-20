@@ -35,7 +35,7 @@ export const Step2 = () => {
     formState: { errors },
     watch,
   } = useForm({
-    // defaultValues: { firstName: data.firstName, lastName: data.lastName },
+    defaultValues: { firstName: data.firstName, lastName: data.lastName },
     mode: "onBlur",
     resolver: yupResolver(schema),
   });
@@ -43,9 +43,8 @@ export const Step2 = () => {
   const history = useNavigate();
 
   const onSubmit = (data) => {
-    console.log(data);
-    history("/step3");
-    // setValues(data);
+    history("/result");
+    setValues(data);
   };
 
   const hasPhone = watch("hasPhone");

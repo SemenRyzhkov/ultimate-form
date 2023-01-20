@@ -14,7 +14,11 @@ export const FileInput = ({ control, name }) => {
       control={control}
       name={name}
       defaultValue={[]}
-      render={({ onChange, onBlur, value }) => (
+      render={({
+        field: { onChange, onBlur, value, name },
+        fieldState: { invalid, isTouched, isDirty, error },
+        formState,
+      }) => (
         <>
           <Dropzone onDrop={onChange}>
             {({ getRootProps, getInputProps }) => (

@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-// import { useData } from "./DataContext";
+import { useData } from "./DataContext";
 import Typography from "@mui/material/Typography";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -22,7 +22,7 @@ const schema = yup.object().shape({
 });
 
 export const Step1 = () => {
-  // const { setValues,  } = useData();
+  const { setValues, data } = useData();
   const history = useNavigate();
 
   const {
@@ -30,7 +30,7 @@ export const Step1 = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    // defaultValues: { firstName: data.firstName, lastName: data.lastName },
+    defaultValues: { firstName: data.firstName, lastName: data.lastName },
     mode: "onBlur",
     resolver: yupResolver(schema),
   });
@@ -38,7 +38,7 @@ export const Step1 = () => {
   const onSubmit = (data) => {
     console.log(data);
     history("/step2");
-    // setValues(data);
+    setValues(data);
   };
 
   return (
